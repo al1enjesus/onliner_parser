@@ -17,7 +17,7 @@ pip install -r requirements.txt
 # Initialize database and superuser
 ```
 python manage.py migrate
-python manage.py scraper
+python manage.py parse
 ```
 Create superuser using **python manage.py createsuperuser**  
 # Usage
