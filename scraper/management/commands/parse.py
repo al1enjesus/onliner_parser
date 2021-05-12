@@ -71,5 +71,5 @@ class Command(BaseCommand):
     help = 'Парсинг onliner'
 
     def handle(self, *args, **options):
-        p = Spider("tv")
+        p = Spider("notebook")
         p.run()

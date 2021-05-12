@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    главная
+{% endblock %}
+
+{% block script %}
+ <script src="https://www.google.com/jsapi"></script>
+  <script>
+   google.load("visualization", "1", {packages:["corechart"]});
+   google.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+     ['Год', 'Цена в BYN'],
+     ['средняя', {{ average }}],
+     ['самая высокая', {{ max }}],
+     ['самая низкая', {{ min }}],
+     ['рекомендуемая', {{ recommended }}]
+    ]);
+    var options = {
+     title: 'средняя цена товаров',
+     vAxis: {title: 'цена'}
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById('pricing'));
+    chart.draw(data, options);
+   }
+  </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="pricing" style="width: 800px; height: 400px;"></div>
+{% endblock %}
